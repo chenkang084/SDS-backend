@@ -7,7 +7,8 @@ var app = express();
 var port = 4000;
 
 app.engine('html', consolidate.ejs);
-app.set('view engine', 'html');
+// app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, './server/views'));
 
 // local variables for all views
@@ -34,8 +35,11 @@ if (isDev) {
             colors: true
         }
     }));
-    app.use(webpackHotMiddleware(compiler));
+    // app.use(webpackHotMiddleware(compiler));
 
+    //add cors config
+    require('./server/routes/cors.config')(app);
+    //inject routes
     require('./server/routes')(app);
 
     // add "reload" to express, see: https://www.npmjs.com/package/reload
@@ -46,7 +50,7 @@ if (isDev) {
     reload(server, app);
 
     server.listen(port, function(){
-        console.log('App (dev) is now running on port 3000!');
+        console.log('App (dev) is now running on port 4000!');
     });
 } else {
 
@@ -54,6 +58,6 @@ if (isDev) {
     app.use(express.static(path.join(__dirname, 'public')));
     require('./server/routes')(app);
     app.listen(port, function () {
-        console.log('App (production) is now running on port 3000!');
+        console.log('App (production) is now running on port 4000!');
     });
 }

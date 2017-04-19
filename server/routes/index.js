@@ -1,4 +1,6 @@
-module.exports = function (app) {
-    app.use('/', require('./page1'));
-    app.use('/page2', require('./page2'));
-};
+module.exports = function routes(app){
+
+    require("./overview.route.js")(app)
+    require("./tables.route.js")(app)
+
+}
