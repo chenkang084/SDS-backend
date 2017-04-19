@@ -37,6 +37,9 @@ if (isDev) {
     }));
     app.use(webpackHotMiddleware(compiler));
 
+    //add cors config
+    require('./server/routes/cors.config')(app);
+    //inject routes
     require('./server/routes')(app);
 
     // add "reload" to express, see: https://www.npmjs.com/package/reload
