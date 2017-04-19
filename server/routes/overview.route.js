@@ -4,17 +4,19 @@ let routers = function routers(app) {
         res.render('index', { title: 'Express' });
     });
 
-    app.get('/getData', function(req, res, next) {
-        res.send({ title: 'Express' });
+    app.get('/api/overview/data', function(req, res, next) {
+        console.log("get method request paramters %s", JSON.stringify(req.query));
+        res.send({ get: 'success' });
     });
 
-
-    app.post('/api/v1/auth/login', function(req, res, next) {
-        res.send({ "message": "Logged in" });
+    app.post('/api/overview/data', function(req, res, next) {
+        console.log("post method request paramters %s", JSON.stringify(req.query));
+        res.send({ post: 'success' });
     });
 
-    app.get('/api/v1/users/me', function(req, res, next) {
-        res.send({"username":"admin","email":"admin@localhost","role":"admin","groups":[],"type":0,"status":true,"firstname":"","lastname":"","notificationenabled":false});
+    app.put('/api/overview/data', function(req, res, next) {
+        console.log("put method request paramters %s", JSON.stringify(req.query));
+        res.send({ put: 'success' });
     });
 
 }

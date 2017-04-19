@@ -8,7 +8,7 @@ module.exports = function cors(app) {
 
         if (req.method == 'OPTIONS') {
             res.send(200);
-            // if request allowed,return next 
+            /让options请求快速返回/
         } else {
             next();
         }
