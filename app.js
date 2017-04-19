@@ -35,7 +35,7 @@ if (isDev) {
             colors: true
         }
     }));
-    app.use(webpackHotMiddleware(compiler));
+    // app.use(webpackHotMiddleware(compiler));
 
     //add cors config
     require('./server/routes/cors.config')(app);
