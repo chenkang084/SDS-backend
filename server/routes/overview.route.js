@@ -1,6 +1,6 @@
 let routers = function routers(app) {
   app.get("/", function(req, res, next) {
-    res.render("index", { title: "Express!!!" });
+    res.render("index", { title: "Express" });
   });
 
   app.get("/api/overview/data", function(req, res, next) {
