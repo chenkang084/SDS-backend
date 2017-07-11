@@ -21,7 +21,7 @@ if (isDev) {
     var webpack = require('webpack'),
         webpackDevMiddleware = require('webpack-dev-middleware'),
         webpackHotMiddleware = require('webpack-hot-middleware'),
-        webpackDevConfig = require('./webpack.config.js');
+        webpackDevConfig = require('./build/webpack.config.js');
 
     var compiler = webpack(webpackDevConfig);
 
@@ -50,7 +50,7 @@ if (isDev) {
     reload(server, app);
 
     server.listen(port, function(){
-        console.log('App (dev) is now running on port 4000!');
+        console.log('App (dev) is now running on port 4000!!!!!');
     });
 } else {
 
